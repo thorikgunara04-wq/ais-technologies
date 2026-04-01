@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AIS Technologies — Dari Urutan ke Karakter</title>
+<meta name="description" content="Sistem teknologi berbasis 5 Bit Logic yang tumbuh bersama usaha Anda. Pengelolaan data, automasi, dan agen AI untuk UMKM."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#0e0e0e;
+  --ink2:#3a3a3a;
+  --ink3:#7a7a7a;
+  --paper:#f5f2ec;
+  --paper2:#ede9e0;
+  --accent:#1a3a2a;
+  --accent2:#2d6147;
+  --gold:#b8935a;
+  --gold2:#e8b97a;
+  --white:#ffffff;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',sans-serif;
+  --radius:12px;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+  line-height:1.7;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 2.5rem;
+  background:rgba(245,242,236,0.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(14,14,14,0.08);
+}
+.nav-brand{
+  font-family:var(--serif);
+  font-size:1.2rem;
+  color:var(--accent);
+  letter-spacing:0.01em;
+  text-decoration:none;
+}
+.nav-links{
+  display:flex;gap:2rem;list-style:none;
+}
+.nav-links a{
+  font-size:0.85rem;font-weight:400;
+  color:var(--ink2);text-decoration:none;
+  letter-spacing:0.04em;text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--accent2)}
+.nav-lang{
+  display:flex;gap:0.5rem;
+}
+.lang-btn{
+  font-size:0.78rem;font-weight:500;
+  padding:4px 10px;border-radius:20px;cursor:pointer;
+  border:1px solid var(--ink2);
+  background:transparent;color:var(--ink2);
+  transition:all 0.2s;font-family:var(--sans);
+}
+.lang-btn.active{background:var(--accent);color:var(--white);border-color:var(--accent)}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:8rem 2.5rem 4rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(45,97,71,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(184,147,90,0.07) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,14,14,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,14,14,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent2);
+  margin-bottom:2rem;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;
+}
+.hero-tag::before{
+  content:'';display:block;width:24px;height:1px;background:var(--gold);
+}
+.hero-headline{
+  font-family:var(--serif);
+  font-size:clamp(2.8rem,6vw,5.2rem);
+  line-height:1.1;
+  color:var(--accent);
+  max-width:760px;
+  opacity:0;animation:fadeUp 0.9s ease forwards 0.4s;
+}
+.hero-headline em{
+  font-style:italic;color:var(--gold);
+}
+.hero-sub{
+  font-size:1.05rem;font-weight:300;
+  color:var(--ink2);
+  max-width:520px;
+  margin-top:1.5rem;
+  opacity:0;animation:fadeUp 0.9s ease forwards 0.6s;
+}
+.hero-cta{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  margin-top:2.5rem;
+  opacity:0;animation:fadeUp 0.9s ease forwards 0.8s;
+}
+.btn-primary{
+  display:inline-block;
+  padding:0.85rem 2rem;
+  background:var(--accent);color:var(--white);
+  font-family:var(--sans);font-size:0.9rem;font-weight:500;
+  border-radius:var(--radius);text-decoration:none;
+  transition:background 0.2s,transform 0.15s;
+  border:none;cursor:pointer;
+}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
+.btn-outline{
+  display:inline-block;
+  padding:0.85rem 2rem;
+  background:transparent;
+  color:var(--accent);
+  font-family:var(--sans);font-size:0.9rem;font-weight:500;
+  border:1.5px solid var(--accent);
+  border-radius:var(--radius);text-decoration:none;
+  transition:all 0.2s;cursor:pointer;
+}
+.btn-outline:hover{background:var(--accent);color:var(--white);transform:translateY(-2px)}
+
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:2.5rem;
+  display:flex;align-items:center;gap:8px;
+  font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--ink3);
+  opacity:0;animation:fadeUp 1s ease forwards 1.2s;
+}
+.scroll-line{
+  width:32px;height:1px;background:var(--ink3);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+
+/* BIT SECTION */
+.section{
+  padding:6rem 2.5rem;
+}
+.section-label{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--gold);opacity:0.3;max-width:60px;}
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(2rem,4vw,3rem);
+  color:var(--accent);
+  line-height:1.15;
+  max-width:600px;
+  margin-bottom:1rem;
+}
+.section-desc{
+  font-size:1rem;font-weight:300;
+  color:var(--ink2);max-width:560px;
+  margin-bottom:3rem;
+}
+
+/* BIT CARDS */
+.bit-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1px;
+  background:rgba(14,14,14,0.1);
+  border:1px solid rgba(14,14,14,0.1);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.bit-card{
+  background:var(--paper);
+  padding:1.75rem 1.5rem;
+  transition:background 0.25s;
+  cursor:default;
+}
+.bit-card:hover{background:var(--paper2)}
+.bit-num{
+  font-family:var(--serif);
+  font-size:2.4rem;
+  color:var(--gold);
+  opacity:0.5;
+  line-height:1;
+  margin-bottom:0.5rem;
+}
+.bit-name{
+  font-size:1rem;font-weight:500;
+  color:var(--accent);
+  margin-bottom:0.25rem;
+}
+.bit-zone{
+  font-size:0.78rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:0.75rem;
+}
+.bit-desc{
+  font-size:0.85rem;font-weight:300;
+  color:var(--ink2);
+  line-height:1.6;
+}
+
+/* LAYANAN */
+.layanan-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.25rem;
+  margin-top:0.5rem;
+}
+.layanan-card{
+  background:var(--white);
+  border:1px solid rgba(14,14,14,0.08);
+  border-radius:var(--radius);
+  padding:2rem 1.75rem;
+  transition:transform 0.2s, box-shadow 0.2s;
+  position:relative;overflow:hidden;
+}
+.layanan-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s;
+}
+.layanan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(14,14,14,0.08)}
+.layanan-card:hover::before{transform:scaleX(1)}
+.layanan-icon{
+  width:44px;height:44px;
+  background:rgba(26,58,42,0.08);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.25rem;
+}
+.layanan-icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.layanan-name{
+  font-size:1.05rem;font-weight:500;
+  color:var(--accent);margin-bottom:0.5rem;
+}
+.layanan-desc{
+  font-size:0.88rem;font-weight:300;
+  color:var(--ink2);line-height:1.65;
+}
+
+/* DIVIDER */
+.divider{
+  height:1px;background:rgba(14,14,14,0.08);
+  margin:0 2.5rem;
+}
+
+/* CTA SECTION */
+.cta-section{
+  padding:6rem 2.5rem;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:2rem;
+  background:var(--accent);
+  color:var(--white);
+}
+.cta-title{
+  font-family:var(--serif);
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  line-height:1.2;
+}
+.cta-title em{font-style:italic;color:var(--gold2)}
+.cta-sub{
+  font-size:0.95rem;font-weight:300;
+  color:rgba(255,255,255,0.7);
+  margin-top:0.75rem;
+}
+.btn-gold{
+  display:inline-block;
+  padding:0.9rem 2.2rem;
+  background:var(--gold);color:var(--white);
+  font-family:var(--sans);font-size:0.9rem;font-weight:500;
+  border-radius:var(--radius);text-decoration:none;
+  white-space:nowrap;
+  transition:background 0.2s,transform 0.15s;
+  border:none;cursor:pointer;
+}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{
+  padding:2.5rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  border-top:1px solid rgba(14,14,14,0.08);
+}
+.footer-brand{
+  font-family:var(--serif);
+  color:var(--accent);font-size:1rem;
+}
+.footer-text{
+  font-size:0.8rem;color:var(--ink3);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:0.4;width:32px}
+  50%{opacity:1;width:48px}
+}
+
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+
+/* LANG TOGGLE */
+[data-en]{display:none}
+body.lang-en [data-id]{display:none}
+body.lang-en [data-en]{display:block}
+span[data-en],span[data-id]{display:inline}
+body.lang-en span[data-id]{display:none}
+body.lang-en span[data-en]{display:inline}
+
+@media(max-width:700px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none}
+  .hero{padding:7rem 1.25rem 3rem}
+  .section{padding:4rem 1.25rem}
+  .cta-section{grid-template-columns:1fr;padding:4rem 1.25rem}
+  footer{padding:2rem 1.25rem;flex-direction:column;text-align:center}
+  .divider{margin:0 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">AIS Technologies</a>
+  <ul class="nav-links">
+    <li><a href="#konsep"><span data-id>Konsep</span><span data-en>Concept</span></a></li>
+    <li><a href="#layanan"><span data-id>Layanan</span><span data-en>Services</span></a></li>
+    <li><a href="#konsultasi"><span data-id>Konsultasi</span><span data-en>Consult</span></a></li>
+  </ul>
+  <div class="nav-lang">
+    <button class="lang-btn active" onclick="setLang('id')">ID</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-tag">AIS Technologies</div>
+  <h1 class="hero-headline">
+    <span data-id>Dari <em>Urutan</em> ke Karakter —<br>Teknologi yang Tumbuh<br>Bersama Usaha Anda</span>
+    <span data-en>From <em>Order</em> to Character —<br>Technology that Grows<br>with Your Business</span>
+  </h1>
+  <p class="hero-sub">
+    <span data-id>Sistem usaha berbasis 5 Bit Logic. Bukan hafalan, bukan kebiasaan — tapi proses nyata yang membangun jatidiri usaha Anda.</span>
+    <span data-en>Business systems built on 5 Bit Logic. Not memorization, not habit — a real process that builds your business's true character.</span>
+  </p>
+  <div class="hero-cta">
+    <a class="btn-primary" href="#konsultasi">
+      <span data-id>Mulai Konsultasi</span>
+      <span data-en>Start Consulting</span>
+    </a>
+    <a class="btn-outline" href="#konsep">
+      <span data-id>Pelajari Konsep</span>
+      <span data-en>Learn the Concept</span>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span data-id>Gulir ke bawah</span>
+    <span data-en>Scroll down</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 5 BIT LOGIC -->
+<section class="section reveal" id="konsep">
+  <div class="section-label">5 Bit Logic</div>
+  <h2 class="section-title">
+    <span data-id>Kerangka proses yang tumbuh dari dalam</span>
+    <span data-en>A growth framework built from within</span>
+  </h2>
+  <p class="section-desc">
+    <span data-id>Bukan sistem yang menyeragamkan. Setiap bit adalah satu siklus pemahaman — dari 0 menuju 1 — yang dirasakan dan dijalani sendiri.</span>
+    <span data-en>Not a system that standardizes. Each bit is one cycle of understanding — from 0 to 1 — felt and lived from within.</span>
+  </p>
+  <div class="bit-grid">
+    <div class="bit-card">
+      <div class="bit-num">1</div>
+      <div class="bit-name"><span data-id>Urutan</span><span data-en>Order</span></div>
+      <div class="bit-zone"><span data-id>Zona: orientasi</span><span data-en>Zone: orientation</span></div>
+      <div class="bit-desc"><span data-id>Bukan hafalan. Memahami langkah secara logis sesuai bidang & karakter masing-masing.</span><span data-en>Not memorization. Understanding steps logically according to one's own field and character.</span></div>
+    </div>
+    <div class="bit-card">
+      <div class="bit-num">2</div>
+      <div class="bit-name"><span data-id>Ukuran</span><span data-en>Measure</span></div>
+      <div class="bit-zone"><span data-id>Zona: rasa</span><span data-en>Zone: feeling</span></div>
+      <div class="bit-desc"><span data-id>Bukan kebiasaan. Ukuran ditentukan sendiri — dirasakan dari dalam hingga benar-benar paham.</span><span data-en>Not habit. The measure is self-determined — felt from within until truly understood.</span></div>
+    </div>
+    <div class="bit-card">
+      <div class="bit-num">3</div>
+      <div class="bit-name"><span data-id>Uraian</span><span data-en>Elaboration</span></div>
+      <div class="bit-zone"><span data-id>Zona: sadar</span><span data-en>Zone: awareness</span></div>
+      <div class="bit-desc"><span data-id>Bukan kebenaran dari hafalan. Mampu mengurai sendiri karena sudah benar-benar sadar.</span><span data-en>Not truth from memorization. Able to elaborate on one's own because truly aware.</span></div>
+    </div>
+    <div class="bit-card">
+      <div class="bit-num">4</div>
+      <div class="bit-name"><span data-id>Urusan</span><span data-en>Engagement</span></div>
+      <div class="bit-zone"><span data-id>Zona: perilaku</span><span data-en>Zone: behavior</span></div>
+      <div class="bit-desc"><span data-id>Bukan keyakinan dari kebiasaan. Kesadaran yang diwujudkan menjadi pekerjaan & perilaku nyata.</span><span data-en>Not belief from habit. Awareness manifested into real work and behavior.</span></div>
+    </div>
+    <div class="bit-card">
+      <div class="bit-num">5</div>
+      <div class="bit-name"><span data-id>Ulangan</span><span data-en>Repetition</span></div>
+      <div class="bit-zone"><span data-id>Zona: karakter / jatidiri</span><span data-en>Zone: character / identity</span></div>
+      <div class="bit-desc"><span data-id>Bukan imaj yang dibuat-buat. Setiap ulangan membawa ke bit berikutnya — karakter berkembang secara alami.</span><span data-en>Not a fabricated image. Each repetition leads to the next bit — character develops naturally.</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LAYANAN -->
+<section class="section reveal" id="layanan">
+  <div class="section-label"><span data-id>Layanan</span><span data-en>Services</span></div>
+  <h2 class="section-title">
+    <span data-id>Sistem nyata untuk usaha yang berkembang</span>
+    <span data-en>Real systems for growing businesses</span>
+  </h2>
+  <p class="section-desc">
+    <span data-id>Filosofi 5 Bit Logic diwujudkan ke dalam sistem software yang diterapkan langsung ke dalam usaha Anda.</span>
+    <span data-en>The 5 Bit Logic philosophy is realized into software systems applied directly to your business.</span>
+  </p>
+  <div class="layanan-grid">
+    <div class="layanan-card">
+      <div class="layanan-icon">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v4c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 9v4c0 1.66 4.03 3 9 3s9-1.34 9-3V9"/><path d="M3 13v4c0 1.66 4.03 3 9 3s9-1.34 9-3v-4"/></svg>
+      </div>
+      <div class="layanan-name"><span data-id>Pengelolaan Data</span><span data-en>Data Management</span></div>
+      <div class="layanan-desc"><span data-id>Struktur data usaha yang terorganisir, real-time, dan mudah diakses. Dari catatan penjualan hingga laporan berkembang.</span><span data-en>Organized, real-time, and easily accessible business data structure. From sales records to growing reports.</span></div>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="layanan-name"><span data-id>Automasi Proses</span><span data-en>Process Automation</span></div>
+      <div class="layanan-desc"><span data-id>Workflow yang berjalan otomatis sesuai urutan usaha Anda. Hemat waktu, kurangi kesalahan, tingkatkan konsistensi.</span><span data-en>Workflows that run automatically according to your business order. Save time, reduce errors, increase consistency.</span></div>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><path d="M2 14h20"/><path d="M2 20h20"/><path d="M6 14v6"/><path d="M18 14v6"/></svg>
+      </div>
+      <div class="layanan-name"><span data-id>Agen AI</span><span data-en>AI Agent</span></div>
+      <div class="layanan-desc"><span data-id>Agen AI interaktif yang bekerja sesuai karakter usaha Anda — bukan template generik, tapi sistem yang adaptif dan berkembang.</span><span data-en>Interactive AI agents that work according to your business character — not generic templates, but adaptive and growing systems.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal" id="konsultasi">
+  <div>
+    <h2 class="cta-title">
+      <span data-id>Siap memulai <em>bit pertama</em>?</span>
+      <span data-en>Ready to start <em>the first bit</em>?</span>
+    </h2>
+    <p class="cta-sub">
+      <span data-id>Konsultasi gratis. Kami dengarkan urutan & ukuran usaha Anda terlebih dahulu.</span>
+      <span data-en>Free consultation. We listen to your business order and measure first.</span>
+    </p>
+  </div>
+  <a class="btn-gold" href="mailto:hello@aistechnologies.id">
+    <span data-id>Mulai Konsultasi</span>
+    <span data-en>Start Consulting</span>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">AIS Technologies</div>
+  <div class="footer-text">
+    <span data-id>© 2025 AIS Technologies. Sistem yang tumbuh bersama usaha Anda.</span>
+    <span data-en>© 2025 AIS Technologies. Systems that grow with your business.</span>
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.toggle('lang-en', lang==='en');
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active', b.textContent===lang.toUpperCase());
+  });
+}
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+reveals.forEach(r=>observer.observe(r));
+</script>
+</body>
+</html>
