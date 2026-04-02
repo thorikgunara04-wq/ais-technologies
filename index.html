@@ -509,6 +509,65 @@ body.lang-en span[data-en] { display: inline !important; }
   color: var(--ink3);
   text-transform: uppercase;
 }
+
+/* GROWTH FLOW DIAGRAM */
+.flow-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.flow-node {
+  flex: 1;
+  background: var(--white);
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(14,14,14,0.05);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.flow-node:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(184,147,90,0.1);
+}
+.flow-connector {
+  display: flex;
+  align-items: center;
+  color: var(--gold);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.node-number {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  color: rgba(184,147,90,0.1);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.node-title {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+.sub-growth {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(14,14,14,0.1);
+}
+.growth-item {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--ink3);
+  margin-bottom: 0.3rem;
+}
+
+@media(max-width: 850px) {
+  .flow-wrapper { flex-direction: column; }
+  .flow-connector { justify-content: center; transform: rotate(90deg); margin: 1rem 0; }
+}
 </style>
 </head>
 <body>
@@ -785,6 +844,62 @@ body.lang-en span[data-en] { display: inline !important; }
       </span>
     </p>
   </div>
+
+  <div class="divider"></div>
+
+<section class="section reveal" id="growth-engine">
+  <div class="section-label"><span data-id>Mesin Pertumbuhan</span><span data-en>Growth Engine</span></div>
+  <h2 class="section-title">
+    <span data-id>Siklus Pertumbuhan Terintegrasi</span>
+    <span data-en>Integrated Growth Cycle</span>
+  </h2>
+  <p class="section-desc">
+    <span data-id>Bagaimana sistem kami mengubah standarisasi menjadi skala usaha yang berkelanjutan.</span>
+    <span data-en>How our system transforms standardization into sustainable business scale.</span>
+  </p>
+
+  <div class="flow-wrapper">
+    <div class="flow-node">
+      <div class="node-number">01</div>
+      <span class="porsi-lab"><span data-id>Input: Fondasi</span><span data-en>Input: Foundation</span></span>
+      <span class="node-title"><span data-id>Urutan & Ukuran</span><span data-en>Sequence & Measure</span></span>
+      <p class="bit-desc" style="font-size:0.85rem;">
+        <span data-id>Standarisasi kerja yang presisi untuk menghilangkan keraguan teknisi.</span>
+        <span data-en>Precision work standardization to eliminate technician doubt.</span>
+      </p>
+    </div>
+
+    <div class="flow-connector">→</div>
+
+    <div class="flow-node" style="background: var(--paper);">
+      <div class="node-number">02</div>
+      <span class="porsi-lab"><span data-id>Proses: Kapasitas</span><span data-en>Process: Capacity</span></span>
+      <span class="node-title"><span data-id>Pengembangan SDM</span><span data-en>Talent Development</span></span>
+      <p class="bit-desc" style="font-size:0.85rem;">
+        <span data-id>Mampu <strong>Mengurai</strong> masalah secara sadar (Skil Teknis & Non-Teknis).</span>
+        <span data-en>Able to <strong>Elaborate</strong> problems consciously (Technical & Non-Technical).</span>
+      </p>
+    </div>
+
+    <div class="flow-connector">→</div>
+
+    <div class="flow-node">
+      <div class="node-number">03</div>
+      <span class="porsi-lab"><span data-id>Output: Skala</span><span data-en>Output: Scale</span></span>
+      <span class="node-title"><span data-id>Ekspansi Usaha</span><span data-en>Business Expansion</span></span>
+      
+      <div class="sub-growth">
+        <span class="growth-item">● <span data-id>Produk & Jasa Unggul</span><span data-en>Superior Products & Services</span></span>
+        <span class="growth-item">● <span data-id>Modal & Aset Berkembang</span><span data-en>Capital & Asset Growth</span></span>
+        <span class="growth-item">● <span data-id>Kepercayaan Klien</span><span data-en>Client Trust</span></span>
+      </div>
+    </div>
+  </div>
+
+  <p class="hero-sub" style="margin-top: 3rem; text-align: center; font-style: italic;">
+    <span data-id>"Pertumbuhan usaha adalah akibat dari SDM yang mampu mengurai pekerjaannya dengan benar."</span>
+    <span data-en>"Business growth is a consequence of talents who can correctly elaborate their work."</span>
+  </p>
 </section>
 
 <!-- CTA -->
