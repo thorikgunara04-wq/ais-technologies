@@ -363,6 +363,68 @@ body.lang-en span[data-en] { display: inline !important; }
   footer{padding:2rem 1.25rem;flex-direction:column;text-align:center}
   .divider{margin:0 1.25rem}
 }
+/* ARUS KAS SECTION */
+.cash-flow-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.flow-step-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.flow-step-item {
+  background: var(--white);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+  box-shadow: 0 4px 15px rgba(14,14,14,0.03);
+}
+.flow-step-title {
+  font-weight: 500;
+  color: var(--accent);
+  display: flex;
+  justify-content: space-between;
+}
+.flow-step-time {
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.porsi-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.porsi-table th, .porsi-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(14,14,14,0.05);
+}
+.porsi-table th {
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.porsi-badge {
+  background: rgba(184,147,90,0.15);
+  color: var(--gold);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+@media(max-width:850px){
+  .cash-flow-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
