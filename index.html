@@ -425,6 +425,90 @@ body.lang-en span[data-en] { display: inline !important; }
 @media(max-width:850px){
   .cash-flow-grid { grid-template-columns: 1fr; }
 }
+
+/* SIMULASI SECTION */
+.simulasi-container {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  border: 1px solid rgba(14,14,14,0.08);
+  margin-top: 2rem;
+}
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--gold);
+}
+.timer-box {
+  text-align: right;
+}
+.timer-label { font-size: 0.7rem; text-transform: uppercase; color: var(--ink3); }
+.timer-value { font-family: var(--serif); color: var(--accent); font-size: 1.2rem; }
+
+/* GROWTH METER */
+.growth-meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+.meter-bg {
+  height: 24px;
+  background: var(--paper2);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.meter-fill {
+  height: 100%;
+  width: 75%; /* Simulasi posisi saat ini */
+  background: linear-gradient(90deg, #e74c3c, #f1c40f, #2ecc71);
+  transition: width 1s ease-in-out;
+}
+.meter-marker {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: var(--ink);
+  opacity: 0.2;
+}
+
+/* CARDS PORSI */
+.porsi-grid-simulasi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.porsi-card-mini {
+  background: var(--paper);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+.porsi-card-mini.active {
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 10px 20px rgba(184,147,90,0.1);
+}
+.porsi-val {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.porsi-lab {
+  font-size: 0.7rem;
+  color: var(--ink3);
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body>
