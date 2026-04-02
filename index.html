@@ -568,6 +568,54 @@ body.lang-en span[data-en] { display: inline !important; }
   .flow-wrapper { flex-direction: column; }
   .flow-connector { justify-content: center; transform: rotate(90deg); margin: 1rem 0; }
 }
+
+/* CHARACTER SECTION */
+.char-container {
+    max-width: 900px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: radial-gradient(circle at center, rgba(184,147,90,0.05) 0%, transparent 70%);
+    border-top: 1px solid rgba(184,147,90,0.1);
+}
+.char-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--accent);
+    margin-bottom: 2rem;
+    line-height: 1.1;
+}
+.char-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+.char-box {
+    flex: 1;
+    max-width: 300px;
+}
+.char-box h4 {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+.char-box p {
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.6;
+}
+.crystal-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+@media(max-width: 700px) {
+    .char-grid { flex-direction: column; align-items: center; gap: 2rem; }
+}
 </style>
 </head>
 <body>
@@ -900,6 +948,53 @@ body.lang-en span[data-en] { display: inline !important; }
     <span data-id>"Pertumbuhan usaha adalah akibat dari SDM yang mampu mengurai pekerjaannya dengan benar."</span>
     <span data-en>"Business growth is a consequence of talents who can correctly elaborate their work."</span>
   </p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section reveal" id="karakter">
+  <div class="char-container">
+    <div class="section-label" style="margin-bottom: 1.5rem;">
+        <span data-id>Hasil Akhir</span><span data-en>Final Result</span>
+    </div>
+    
+    <h2 class="char-title">
+      <span data-id>Membentuk Karakter, Bukan Sekadar Imaji.</span>
+      <span data-en>Building Character, Not Just an Image.</span>
+    </h2>
+
+    <p class="section-desc" style="max-width: 700px; margin: 0 auto;">
+      <span data-id>Identitas <strong>AIS Technologies</strong> tidak lahir dari desain visual, melainkan kristalisasi dari kedisiplinan menjalankan 5 Bit Logic setiap hari.</span>
+      <span data-en>The identity of <strong>AIS Technologies</strong> is not born from visual design, but the crystallization of discipline in executing 5 Bit Logic daily.</span>
+    </p>
+
+    <div class="char-grid">
+      <div class="char-box">
+        <span class="crystal-icon">◈</span>
+        <span data-id><h4>Proses</h4><p>Pola kerja yang <strong>Urut</strong> & <strong>Terukur</strong> (Bit 1-2).</p></span>
+        <span data-en><h4>Process</h4><p><strong>Sequenced</strong> & <strong>Measured</strong> work patterns (Bit 1-2).</p></span>
+      </div>
+
+      <div class="char-box" style="border-left: 1px solid rgba(184,147,90,0.2); border-right: 1px solid rgba(184,147,90,0.2);">
+        <span class="crystal-icon">✦</span>
+        <span data-id><h4>Kesadaran</h4><p>Mampu <strong>Mengurai</strong> & mengeksekusi <strong>Urusan</strong> (Bit 3-4).</p></span>
+        <span data-en><h4>Consciousness</h4><p>Able to <strong>Elaborate</strong> & execute <strong>Affairs</strong> (Bit 3-4).</p></span>
+      </div>
+
+      <div class="char-box">
+        <span class="crystal-icon">💎</span>
+        <span data-id><h4>Identitas</h4><p>Membentuk <strong>Karakter Usaha</strong> yang terus berkembang (Bit 5).</p></span>
+        <span data-en><h4>Identity</h4><p>Forming an evolving <strong>Business Character</strong> (Bit 5).</p></span>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem;">
+        <a href="#consult" class="btn-gold">
+            <span data-id>Bangun Karakter Usaha Anda</span>
+            <span data-en>Build Your Business Character</span>
+        </a>
+    </div>
+  </div>
 </section>
 
 <!-- CTA -->
