@@ -616,6 +616,137 @@ body.lang-en span[data-en] { display: inline !important; }
 @media(max-width: 700px) {
     .char-grid { flex-direction: column; align-items: center; gap: 2rem; }
 }
+
+/* MODERN CHAT WIDGET AIS */
+#chat-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 360px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10000;
+    font-family: 'Inter', -apple-system, sans-serif;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+#chat-header {
+    background: #1a2f23; /* Hijau Gelap AIS */
+    color: #f1d3a1;    /* Emas Lembut AIS */
+    padding: 18px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f1d3a1;
+}
+
+#chat-body {
+    height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    background: #fdfbf7; /* Warna Kertas Premium */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Style */
+#chat-body::-webkit-scrollbar { width: 5px; }
+#chat-body::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 10px; }
+
+.msg { 
+    padding: 12px 16px; 
+    border-radius: 14px; 
+    max-width: 85%; 
+    font-size: 0.9rem; 
+    line-height: 1.5;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-msg { 
+    background: #1a2f23; 
+    color: white; 
+    align-self: flex-end; 
+    border-bottom-right-radius: 2px;
+}
+
+.ai-msg { 
+    background: white; 
+    color: #333; 
+    align-self: flex-start; 
+    border-bottom-left-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+#chat-input-area { 
+    display: flex; 
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    gap: 10px;
+}
+
+#chat-input { 
+    flex: 1; 
+    border: 1px solid #eee; 
+    padding: 12px 15px; 
+    border-radius: 25px;
+    outline: none; 
+    font-size: 0.9rem;
+    transition: border 0.2s;
+}
+
+#chat-input:focus { border-color: #1a2f23; }
+
+#chat-send { 
+    background: #1a2f23; 
+    color: #f1d3a1; 
+    border: none; 
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+#chat-send:hover { transform: scale(1.05); background: #243d2e; }
+
+/* Update CSS Chat Widget */
+#chat-widget.minimized {
+    width: 200px; /* Lebih ramping saat tutup */
+    height: 55px;  /* Hanya header yang kelihatan */
+}
+
+#chat-widget.minimized #chat-content {
+    display: none; /* Sembunyikan isi saat minimized */
+}
+
+#chat-widget.minimized #chat-status {
+    display: inline !important; /* Tunjukkan status online saat kecil */
+}
+
+/* Transisi halus agar tidak kaget */
+#chat-widget {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 </style>
 </head>
 <body>
@@ -1042,6 +1173,113 @@ const observer = new IntersectionObserver(entries=>{
   });
 },{threshold:0.12});
 reveals.forEach(r=>observer.observe(r));
+
+// Gunakan window.onload agar JS menunggu HTML selesai dimuat
+window.onload = () => {
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+    const chatBody = document.getElementById('chat-body');
+
+    // Pastikan tombolnya ada sebelum pasang onclick
+    if (chatSend) {
+        chatSend.onclick = async () => {
+            const text = chatInput.value;
+            if(!text) return;
+
+            chatBody.innerHTML += `<div class="msg user-msg">${text}</div>`;
+            chatInput.value = '';
+
+            try {
+                // Ganti alamat localhost menjadi jalur relatif API Vercel
+                const response = await fetch('/api/chat', { 
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+                const data = await response.json();
+                
+                chatBody.innerHTML += `<div class="msg ai-msg">${data.response}</div>`;
+                chatBody.scrollTop = chatBody.scrollHeight;
+            } catch (err) {
+                chatBody.innerHTML += `<div class="msg ai-msg" style="color:red">Error: Pastikan server Python aktif!</div>`;
+            }
+        };
+    }
+};
 </script>
+
+<div id="chat-widget" class="minimized"> <div id="chat-header" style="cursor: pointer;">
+        <div>
+            <span>AIS Digital Agent</span>
+            <small id="chat-status" style="font-size: 0.7rem; display: none;">● Online</small>
+        </div>
+        <span id="chat-toggle-icon">▲</span> </div>
+    <div id="chat-content"> <div id="chat-body">
+            <div class="msg ai-msg">Selamat datang di AIS Technologies, Bro/Sist. Ada urusan sistem atau automasi data yang bisa kami bantu?</div>
+        </div>
+        <div id="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Tanyakan tentang 5-Bit Logic...">
+            <button id="chat-send">➤</button>
+        </div>
+    </div>
+</div>
+
+<script>
+        // Tunggu halaman benar-benar siap
+        window.onload = () => {
+            const chatWidget = document.getElementById('chat-widget');
+            const chatHeader = document.getElementById('chat-header');
+            const toggleIcon = document.getElementById('chat-toggle-icon');
+            const chatInput = document.getElementById('chat-input');
+            const chatSend = document.getElementById('chat-send');
+            const chatBody = document.getElementById('chat-body');
+
+            // --- FUNGSI BUKA-TUTUP (TOGGLE) ---
+            chatHeader.onclick = () => {
+                chatWidget.classList.toggle('minimized');
+                // Ganti ikon panah
+                if (chatWidget.classList.contains('minimized')) {
+                    toggleIcon.innerText = '▲';
+                } else {
+                    toggleIcon.innerText = '▼';
+                }
+            };
+
+            // --- FUNGSI KIRIM PESAN ---
+            chatSend.onclick = async () => {
+                const text = chatInput.value;
+                if(!text) return;
+
+                // Tampilkan pesan user
+                chatBody.innerHTML += `<div class="msg user-msg">${text}</div>`;
+                chatInput.value = '';
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                try {
+                    // Panggil Server Python (Localhost 5000)
+                    const response = await fetch('http://127.0.0.1:5000/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: text })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    // Tampilkan jawaban AI
+                    chatBody.innerHTML += `<div class="msg ai-msg">${data.response}</div>`;
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                } catch (err) {
+                    chatBody.innerHTML += `<div class="msg ai-msg" style="color:red">Error: Pastikan Python aktif, Bro!</div>`;
+                }
+            };
+
+            // Agar bisa tekan Enter untuk kirim
+            chatInput.addEventListener("keypress", (event) => {
+                if (event.key === "Enter") {
+                    chatSend.click();
+                }
+            });
+        };
+    </script>
 </body>
 </html>
