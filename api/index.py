@@ -17,7 +17,7 @@ def chat():
         user_message = user_data.get('message', '')
 
         # Format pemanggilan terbaru untuk library 0.5.0+
-        model = genai.GenerativeModel(model_name="gemini-pro")
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
         
         # Penulisan pesan yang lebih stabil
         response = model.generate_content(user_message)
