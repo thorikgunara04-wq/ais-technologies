@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-# Ambil API KEY dari Environment Variables Vercel
+# Ambil Key dari Environment Variable Vercel
 api_key = os.environ.get("GEMINI_API_KEY")
 genai.configure(api_key=api_key)
 
@@ -16,18 +16,14 @@ def chat():
         user_data = request.json
         user_message = user_data.get('message', '')
 
-        # Pakai model 1.5-flash
-        model = genai.GenerativeModel('gemini-2.0-latest')
-
-        web_content = (
-            "AIS Technologies adalah pengembang sistem bisnis berbasis digital milik Bro Thorik. "
-            "FOKUS: Sistem '5-Bit Clean Logic', Data Automation, & Agen AI."
-        )
-
-        prompt = f"Kamu adalah AI AIS Technologies. Jawab berdasarkan data ini: {web_content}. Pertanyaan: {user_message}"
+        # Format pemanggilan terbaru untuk library 0.5.0+
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
         
-        response = model.generate_content(prompt)
+        # Penulisan pesan yang lebih stabil
+        response = model.generate_content(user_message)
+        
         return jsonify({"response": response.text})
 
     except Exception as e:
-        return jsonify({"response": f"Maintenance bro: {str(e)}"}), 500
+        # Menampilkan pesan error asli agar kita tahu penyakitnya
+        return jsonify({"response": f"Sistem butuh penyesuaian: {str(e)}"}), 500
