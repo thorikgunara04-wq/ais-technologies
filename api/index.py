@@ -1,28 +1,32 @@
-import google.generativeai as genai
+import os
+import requests
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import os
 
 app = Flask(__name__)
 CORS(app)
-
-# --- BAGIAN KRUSIAL ---
-# Kita paksa konfigurasi ke versi v1 agar tidak nyangkut di v1beta
-os.environ["GOOGLE_API_USE_MTLS_ENDPOINT"] = "never" 
-
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
     try:
         user_message = request.json.get('message', '')
+        api_key = os.environ.get("GEMINI_API_KEY")
         
-        # Kita panggil model dengan cara yang paling eksplisit
-        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+        # JALUR LANGSUNG (BYPASS LIBRARY):
+        url = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key={api_key}"
         
-        response = model.generate_content(user_message)
-        return jsonify({"response": response.text})
+        payload = {
+            "contents": [{"parts": [{"text": user_message}]}]
+        }
+        
+        response = requests.post(url, json=payload)
+        data = response.json()
+        
+        if "candidates" in data:
+            ai_response = data["candidates"][0]["content"]["parts"][0]["text"]
+            return jsonify({"response": ai_response})
+        else:
+            return jsonify({"response": f"Google Error: {data.get('error', {}).get('message', 'Unknown Error')}"}), 500
 
     except Exception as e:
-        # Tambahkan kata 'PENETU' biar kita tahu ini hasil kode yang baru
-        return jsonify({"response": f"Penentu - Error: {str(e)}"}), 500
+        return jsonify({"response": f"Bypass System - Error: {str(e)}"}), 500
