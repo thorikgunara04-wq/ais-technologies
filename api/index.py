@@ -12,7 +12,7 @@ genai.configure(api_key=api_key)
 
 def get_working_model():
     # Gunakan model terbaru yang tersedia
-    return genai.GenerativeModel('gemini-pro')
+    return genai.GenerativeModel('gemini-1.5-flash')
 
 model = get_working_model()
 
