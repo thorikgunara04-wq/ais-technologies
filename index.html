@@ -1256,8 +1256,8 @@ window.onload = () => {
                 chatBody.scrollTop = chatBody.scrollHeight;
 
                 try {
-                    // Panggil Server Python (Localhost 5000)
-                    const response = await fetch('http://127.0.0.1:5000/chat', {
+                    // Panggil Server Python
+                    const response = await fetch('/api/chat', { 
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ message: text })
