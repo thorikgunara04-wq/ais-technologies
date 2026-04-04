@@ -17,7 +17,7 @@ def chat():
         user_message = user_data.get('message', '')
 
         # Pakai model 1.5-flash
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-2.0-flash')
 
         web_content = (
             "AIS Technologies adalah pengembang sistem bisnis berbasis digital milik Bro Thorik. "
