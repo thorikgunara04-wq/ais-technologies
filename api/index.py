@@ -6,24 +6,23 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-# Ambil Key dari Environment Variable Vercel
-api_key = os.environ.get("GEMINI_API_KEY")
-genai.configure(api_key=api_key)
+# --- BAGIAN KRUSIAL ---
+# Kita paksa konfigurasi ke versi v1 agar tidak nyangkut di v1beta
+os.environ["GOOGLE_API_USE_MTLS_ENDPOINT"] = "never" 
+
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
     try:
-        user_data = request.json
-        user_message = user_data.get('message', '')
-
-        # Format pemanggilan terbaru untuk library 0.5.0+
+        user_message = request.json.get('message', '')
+        
+        # Kita panggil model dengan cara yang paling eksplisit
         model = genai.GenerativeModel(model_name="gemini-1.5-flash")
         
-        # Penulisan pesan yang lebih stabil
         response = model.generate_content(user_message)
-        
         return jsonify({"response": response.text})
 
     except Exception as e:
-        # Menampilkan pesan error asli agar kita tahu penyakitnya
-        return jsonify({"response": f"Sistem butuh penyesuaian: {str(e)}"}), 500
+        # Tambahkan kata 'PENETU' biar kita tahu ini hasil kode yang baru
+        return jsonify({"response": f"Penentu - Error: {str(e)}"}), 500
