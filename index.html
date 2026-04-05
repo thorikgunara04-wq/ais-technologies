@@ -1140,7 +1140,7 @@ body.lang-en span[data-en] { display: inline !important; }
       <span data-en>Free consultation. We listen to your business order and measure first.</span>
     </p>
   </div>
-  <a class="btn-gold" href="https://wa.me/6285159346322?text=Halo%20AIS%20Technologies,%20saya%20tertarik%20ingin%20konsultasi%20mengenai%20sistem%205%20Bit%20Logic.">
+  <a class="btn-gold" href="javascript:void(0);" onclick="kirimKonsultasi()">
     <span data-id>Mulai Konsultasi</span>
     <span data-en>Start Consulting</span>
   </a>
@@ -1304,6 +1304,28 @@ Silakan hubungi via WhatsApp dengan klik tombol "Mulai Konsultasi".`;
             chatInput.value = '';
         }
     });
+</script>
+
+<script>
+function kirimKonsultasi() {
+    // 1. Urut: Cek bahasa mana yang sedang tampil (tidak hidden)
+    // Asumsi: Kamu pakai CSS display:none untuk menyembunyikan data-id atau data-en
+    const isEnglish = document.querySelector('[data-en]').getClientRects().length > 0;
+    
+    let pesan = "";
+    const nomorWA = "6285159346322";
+
+    // 2. Ukur & Urai: Pilih pesan sesuai bahasa
+    if (isEnglish) {
+        pesan = "Hello AIS Technologies, I am interested in consulting about the 5 Bit Logic system.";
+    } else {
+        pesan = "Halo AIS Technologies, saya tertarik ingin konsultasi mengenai sistem 5 Bit Logic.";
+    }
+
+    // 3. Urus: Eksekusi pengiriman
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+    window.open(url, '_blank');
+}
 </script>
 </body>
 </html>
