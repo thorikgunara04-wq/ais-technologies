@@ -1280,6 +1280,30 @@ window.onload = () => {
                 }
             });
         };
-    </script>
+</script>
+
+<script>
+    // 1. Ambil elemen tombol dan input
+    const chatSend = document.getElementById('chat-send');
+    const chatInput = document.getElementById('chat-input');
+
+    // 2. Buat pesan maintenance pakai backtick (`) agar rapi
+    const pesanMaintenance = `Maaf Bro, AIS Digital Agent sedang dalam tahap sinkronisasi 5-Bit Logic. 
+Silakan hubungi Owner via WhatsApp untuk urusan sistem saat ini.`;
+
+    // 3. Urus: Ketika tombol kirim diklik
+    chatSend.addEventListener('click', () => {
+        alert(pesanMaintenance); // Munculkan pop-up peringatan
+        chatInput.value = '';     // Bersihkan kolom input
+    });
+
+    // 4. Tambahan: Ketika user tekan Enter di keyboard
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            alert(pesanMaintenance);
+            chatInput.value = '';
+        }
+    });
+</script>
 </body>
 </html>
