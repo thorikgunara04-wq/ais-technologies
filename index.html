@@ -1308,21 +1308,24 @@ Silakan hubungi via WhatsApp dengan klik tombol "Mulai Konsultasi".`;
 
 <script>
 function kirimKonsultasi() {
-    // 1. Urut: Cek bahasa mana yang sedang tampil (tidak hidden)
-    // Asumsi: Kamu pakai CSS display:none untuk menyembunyikan data-id atau data-en
-    const isEnglish = document.querySelector('[data-en]').getClientRects().length > 0;
+    // 1. Urut: Cari elemen span data-en yang ada di dalam judul CTA
+    const elementEn = document.querySelector('.cta-title [data-en]');
     
-    let pesan = "";
-    const nomorWA = "6285159346322";
+    // 2. Ukur: Cek apakah elemen English sedang "tampil" (offsetParent tidak null)
+    // Jika offsetParent ada, berarti elemen tersebut sedang tampil di layar
+    const isEnglishActive = elementEn && elementEn.offsetParent !== null;
 
-    // 2. Ukur & Urai: Pilih pesan sesuai bahasa
-    if (isEnglish) {
+    const nomorWA = "6285159346322";
+    let pesan = "";
+
+    // 3. Urai & Urus: Tentukan pesan sesuai hasil ukur bahasa
+    if (isEnglishActive) {
         pesan = "Hello AIS Technologies, I am interested in consulting about the 5 Bit Logic system.";
     } else {
         pesan = "Halo AIS Technologies, saya tertarik ingin konsultasi mengenai sistem 5 Bit Logic.";
     }
 
-    // 3. Urus: Eksekusi pengiriman
+    // 4. Eksekusi: Buka WhatsApp
     const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
     window.open(url, '_blank');
 }
