@@ -90,7 +90,7 @@ function loadSfDashboardQueue() {
                 <td style="font-size:0.8rem; color:#a3b8b0;">${s.kerusakan}</td>
                 <td style="font-size:0.8rem; color:#dfb26c; font-weight:600;">${s.tindakan}</td>
                 <td>${s.teknisi}</td>
-                <td style="color:#ff6b00; font-weight:bold;">Rp ${s.laba.toLocaleString('id-ID')}</td>
+                <td style="color:#d96d00; font-weight:bold;">Rp ${s.laba.toLocaleString('id-ID')}</td>
                 <td>
                     <button class="switch-btn active" style="padding: 4px 10px; font-size:0.7rem;" onclick="simulateSfAction('${s.no}')">
                         ${s.status === 'Repair' ? '💻 Flash ROM' : '👁️ Detail'}
@@ -218,11 +218,11 @@ function startInteractiveFlashing(deviceName) {
             
             // Apply different colors based on tags
             if (logs[currentLine].includes("[OK]") || logs[currentLine].includes("✅")) {
-                line.style.color = "#ff6b00"; // neon amber
+                line.style.color = "#d96d00"; // soft solar orange
             } else if (logs[currentLine].includes("[WARNING]")) {
-                line.style.color = "#ffd000"; // neon yellow
+                line.style.color = "#cca000"; // soft solar yellow
             } else if (logs[currentLine].includes("SUCCESS")) {
-                line.style.color = "#ff6b00";
+                line.style.color = "#d92451"; // soft solar crimson red
                 line.style.fontWeight = "bold";
             }
             
@@ -273,7 +273,7 @@ function loadRpTransactions() {
                 <td style="font-weight:600;">${tx.operator}</td>
                 <td style="font-family:var(--font-mono);">${tx.nomor}</td>
                 <td style="font-family:var(--font-mono); font-weight:600;">${tx.nominal}</td>
-                <td style="color:#ff6b00; font-weight:bold;">Rp ${tx.profit.toLocaleString('id-ID')}</td>
+                <td style="color:#d96d00; font-weight:bold;">Rp ${tx.profit.toLocaleString('id-ID')}</td>
                 <td><span class="status-badge badge-cash">SUCCESS</span></td>
             </tr>
         `;
@@ -507,10 +507,10 @@ function initCashFlowCalculator() {
         
         if (val >= totalBeban) {
             statusText = "🎯 CLEAR TO HOME (CTH) — Laba Bersih Positif & Aset Berkembang!";
-            barColor = "#ff6b00"; // Amber Orange
+            barColor = "#d96d00"; // Soft Solar Orange
         } else if (val >= opexHarian) {
             statusText = "🚀 CLEAR TO OPERATIONAL (CTO) — Beban Ops Terpenuhi!";
-            barColor = "#ffd000"; // Gold Yellow
+            barColor = "#cca000"; // Soft Solar Yellow
         } else if (val >= gajiHarian) {
             statusText = "⚡ CLEAR TO SALARY (CTS) — Gaji Staf Hari Ini Aman!";
             barColor = "#3b82f6"; // Blue
