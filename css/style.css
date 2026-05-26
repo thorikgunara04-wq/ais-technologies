@@ -7,31 +7,31 @@
 }
 
 :root {
-    /* Color Palette - Premium Deep Space (Electric Blue & Crimson Red) */
-    --bg-base: #020308;          /* Deep Space Obsidian Black */
-    --bg-primary: #050612;       /* Very Dark Space Navy */
-    --bg-secondary: #090c22;     /* Deep Space Blue Card Base */
-    --bg-tertiary: #0e1232;      /* Translucent Indigo Space Card */
-    --accent: #00d2ff;           /* Glowing Electric Cyan/Blue */
-    --accent-glow: rgba(0, 210, 255, 0.25);
-    --gold: #ff3e6c;             /* Vibrant Neon Crimson/Red */
-    --gold-glow: rgba(255, 62, 108, 0.2);
-    --gold-dark: #d91b4c;        /* Deep Crimson */
-    --text-primary: #f1f5f9;     /* Ice White */
-    --text-secondary: #94a3b8;   /* Muted Slate Grey */
-    --text-muted: #475569;       /* Dark Slate Grey */
-    --border-glass: rgba(0, 210, 255, 0.15);
-    --border-glass-active: rgba(255, 62, 108, 0.35);
+    /* Color Palette - Premium Obsidian Charcoal & Solar Accent (Orange & Yellow) */
+    --bg-base: #050506;          /* Clean Neutral Obsidian Black */
+    --bg-primary: #09090b;       /* Charcoal Zinc-950 */
+    --bg-secondary: #111113;     /* Sleek Dark Charcoal Card Base */
+    --bg-tertiary: #18181b;      /* Zinc-900 Card Active */
+    --accent: #ff6b00;           /* Radiant Amber Orange */
+    --accent-glow: rgba(255, 107, 0, 0.12);
+    --gold: #ffd000;             /* Bright Gold Yellow */
+    --gold-glow: rgba(255, 208, 0, 0.12);
+    --gold-dark: #cc9c00;        /* Deep Gold */
+    --text-primary: #f4f4f5;     /* Clean Ice White */
+    --text-secondary: #a1a1aa;   /* Zinc-400 Slate */
+    --text-muted: #52525b;       /* Zinc-600 Dark Slate */
+    --border-glass: rgba(255, 107, 0, 0.08); /* Minimal subtle accent border */
+    --border-glass-active: rgba(255, 208, 0, 0.25);
     
     /* System States */
-    --status-cash: #00d2ff;      /* Electric Cyan */
-    --status-analisa: #64748b;   /* Muted Slate */
-    --status-konfirmasi: #dfb26c;/* Amber/Gold */
+    --status-cash: #ff6b00;      /* Amber Orange */
+    --status-analisa: #71717a;   /* Zinc-500 */
+    --status-konfirmasi: #ffd000;/* Gold Yellow */
     --status-wait: #3b82f6;      /* Blue */
-    --status-repair: #00d2ff;    /* Cyan */
+    --status-repair: #ff6b00;    /* Amber */
     --status-done: #3b82f6;
     --status-failed: #ef4444;    /* Red */
-    --status-garansi: #00d2ff;
+    --status-garansi: #ff6b00;
     
     /* Fonts & Radii */
     --font-serif: 'DM Serif Display', Georgia, serif;
@@ -69,7 +69,7 @@ body {
     right: -10%;
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.035) 0%, transparent 60%);
 }
 .bg-glow-2 {
     position: absolute;
@@ -77,14 +77,14 @@ body {
     left: -10%;
     width: 50vw;
     height: 50vw;
-    background: radial-gradient(circle, rgba(255, 62, 108, 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 208, 0, 0.025) 0%, transparent 60%);
 }
 .bg-grid {
     position: absolute;
     inset: 0;
     background-image: 
-        linear-gradient(rgba(0, 210, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 210, 255, 0.015) 1px, transparent 1px);
+        linear-gradient(rgba(255, 107, 0, 0.01) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 107, 0, 0.01) 1px, transparent 1px);
     background-size: 60px 60px;
 }
 
