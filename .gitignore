@@ -1,0 +1,17 @@
+# Backups
+index.html.bak
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+venv/
+.venv/
+env/
+.env
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
