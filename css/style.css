@@ -7,39 +7,41 @@
 }
 
 :root {
-    /* Color Palette - Solar Eclipse (Subtle Crimson Red, Amber Orange, & Gold Yellow) */
-    --bg-base: #040405;          /* Neutral Stealth Black */
-    --bg-primary: #070709;       /* Obsidian Charcoal */
-    --bg-secondary: #0e0e10;     /* Dark Charcoal Card Base */
-    --bg-tertiary: #141416;      /* Slightly lighter Charcoal */
-    --accent: #d96d00;           /* Soft Premium Amber Orange */
-    --accent-glow: rgba(217, 109, 0, 0.02); /* Extremely dim! */
-    --gold: #cca000;             /* Soft Muted Solar Yellow */
-    --gold-glow: rgba(204, 160, 0, 0.015);  /* Extremely dim! */
-    --gold-dark: #a68200;
+    /* Color Palette - Rambay Pro Inspired Cybertech (Midnight Navy Base with Fiery Orange & Emerald Accents) */
+    --bg-base: #090d16;          /* Deep Midnight Navy */
+    --bg-primary: #0c1220;       /* Midnight Slate Charcoal */
+    --bg-secondary: rgba(17, 24, 39, 0.65); /* Glassmorphism Card Base */
+    --bg-tertiary: #111827;      /* Solid Surface Grey-Blue */
+    --accent: #ff5722;           /* Fiery Cyber Orange */
+    --accent-glow: rgba(255, 87, 34, 0.06); /* Extremely classy glow */
+    --gold: #f59e0b;             /* Cyber Amber */
+    --gold-glow: rgba(245, 158, 11, 0.04);
+    --gold-dark: #d97706;
     
-    /* Elegant Crimson Red Accent */
-    --accent-red: #d92451;       /* Soft Premium Crimson Red */
-    --accent-red-glow: rgba(217, 36, 81, 0.015);
+    /* Elegant Crimson Red & Success Emerald */
+    --accent-red: #ef4444;       /* Vivid Red */
+    --accent-red-glow: rgba(239, 68, 68, 0.02);
+    --success: #10b981;          /* Cyber Emerald Green */
+    --success-glow: rgba(16, 185, 129, 0.05);
     
-    /* Solar Eclipse Gradient - Red-Orange-Yellow */
-    --gradient-solar: linear-gradient(95deg, var(--accent-red) 0%, var(--accent) 50%, var(--gold) 100%);
+    /* Cybertech Accent Gradient - Orange-Amber-Emerald */
+    --gradient-solar: linear-gradient(95deg, #ff5722 0%, #f59e0b 50%, #10b981 100%);
     
-    --text-primary: #f4f4f7;     /* Clean Ice White */
-    --text-secondary: #9ea3b0;   /* Muted Slate Grey */
-    --text-muted: #4e525f;       /* Dark Slate Grey */
-    --border-glass: rgba(255, 255, 255, 0.03); /* Premium ultra-thin neutral border */
-    --border-glass-active: rgba(217, 109, 0, 0.12); /* Muted Red-Orange active border */
+    --text-primary: #f3f4f6;     /* Clean Ice White */
+    --text-secondary: #9ca3af;   /* Muted Slate Grey */
+    --text-muted: #6b7280;       /* Dark Slate Grey */
+    --border-glass: rgba(255, 255, 255, 0.08); /* Standardized Rambay Pro border */
+    --border-glass-active: rgba(255, 87, 34, 0.25); /* Fiery active border */
     
     /* System States */
     --status-cash: var(--accent);
-    --status-analisa: #64748b;
+    --status-analisa: #6b7280;
     --status-konfirmasi: var(--gold);
     --status-wait: #3b82f6;
     --status-repair: var(--accent);
-    --status-done: #3b82f6;
+    --status-done: var(--success);
     --status-failed: #ef4444;
-    --status-garansi: var(--accent);
+    --status-garansi: var(--success);
     
     /* Fonts & Radii */
     --font-serif: 'DM Serif Display', Georgia, serif;
@@ -77,7 +79,7 @@ body {
     right: -10%;
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(217, 36, 81, 0.012) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(255, 87, 34, 0.05) 0%, transparent 60%);
 }
 .bg-glow-2 {
     position: absolute;
@@ -85,14 +87,14 @@ body {
     left: -10%;
     width: 50vw;
     height: 50vw;
-    background: radial-gradient(circle, rgba(217, 109, 0, 0.008) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 60%);
 }
 .bg-grid {
     position: absolute;
     inset: 0;
     background-image: 
-        linear-gradient(rgba(217, 109, 0, 0.004) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(217, 109, 0, 0.004) 1px, transparent 1px);
+        linear-gradient(rgba(255, 87, 34, 0.005) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 87, 34, 0.005) 1px, transparent 1px);
     background-size: 60px 60px;
 }
 
@@ -105,7 +107,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 1.2rem 5%;
-    background: rgba(4, 4, 5, 0.85);
+    background: rgba(9, 13, 22, 0.85);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-glass);
     transition: all 0.3s ease;
@@ -165,10 +167,10 @@ nav {
     transition: all 0.3s ease;
 }
 .lang-btn.active {
-    background: rgba(217, 109, 0, 0.08);
+    background: rgba(255, 87, 34, 0.12);
     color: var(--accent);
     border-color: var(--accent);
-    box-shadow: 0 0 10px rgba(217, 109, 0, 0.04);
+    box-shadow: 0 0 12px rgba(255, 87, 34, 0.06);
 }
 .lang-btn:hover:not(.active) {
     border-color: var(--accent);
@@ -255,12 +257,12 @@ nav {
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(217, 36, 81, 0.05);
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.12);
 }
 .btn-primary:hover {
     transform: translateY(-3px);
     background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box, var(--gradient-solar) border-box;
-    box-shadow: 0 8px 20px rgba(217, 109, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.25);
     color: var(--accent);
 }
 .btn-outline {
@@ -348,7 +350,7 @@ nav {
 }
 .divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(217, 109, 0, 0.08) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 34, 0.12) 50%, transparent 100%);
     margin: 0 5%;
 }
 
@@ -372,14 +374,14 @@ nav {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 10% 10%, rgba(217, 109, 0, 0.02) 0%, transparent 60%);
+    background: radial-gradient(circle at 10% 10%, rgba(255, 87, 34, 0.04) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 .bit-card:hover {
     transform: translateY(-5px);
     border-color: var(--border-glass-active);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(217, 109, 0, 0.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 87, 34, 0.04);
 }
 .bit-card:hover::before {
     opacity: 1;
@@ -444,7 +446,7 @@ nav {
 }
 .layanan-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(217, 36, 81, 0.12);
+    border-color: rgba(255, 87, 34, 0.2);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 .layanan-card:hover::after {
@@ -453,17 +455,17 @@ nav {
 .layanan-icon {
     width: 52px;
     height: 52px;
-    background: rgba(217, 109, 0, 0.04);
+    background: rgba(255, 87, 34, 0.06);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(217, 109, 0, 0.08);
+    border: 1px solid rgba(255, 87, 34, 0.12);
     transition: background 0.3s;
 }
 .layanan-card:hover .layanan-icon {
-    background: rgba(217, 109, 0, 0.08);
+    background: rgba(255, 87, 34, 0.12);
 }
 .layanan-icon svg {
     width: 24px; height: 24px;
@@ -516,7 +518,7 @@ nav {
     background: var(--bg-tertiary);
     border-color: var(--accent);
     color: var(--accent);
-    box-shadow: 0 0 15px rgba(217, 109, 0, 0.04), inset 0 0 8px rgba(217, 109, 0, 0.02);
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.08), inset 0 0 8px rgba(255, 87, 34, 0.04);
 }
 .portfolio-pane {
     display: none;
@@ -754,11 +756,11 @@ nav {
     display: inline-block;
     letter-spacing: 0.02em;
 }
-.badge-cash { background: rgba(217, 109, 0, 0.06); color: var(--accent); border: 1px solid rgba(217, 109, 0, 0.15); }
-.badge-analisa { background: rgba(139, 155, 180, 0.1); color: var(--text-secondary); border: 1px solid rgba(139, 155, 180, 0.15); }
-.badge-repair { background: rgba(217, 109, 0, 0.06); color: var(--accent); border: 1px solid rgba(217, 109, 0, 0.15); }
-.badge-wait { background: rgba(59, 130, 246, 0.08); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.15); }
-.badge-done { background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+.badge-cash { background: rgba(255, 87, 34, 0.1); color: var(--accent); border: 1px solid rgba(255, 87, 34, 0.2); }
+.badge-analisa { background: rgba(107, 114, 128, 0.1); color: var(--text-secondary); border: 1px solid rgba(107, 114, 128, 0.15); }
+.badge-repair { background: rgba(255, 87, 34, 0.1); color: var(--accent); border: 1px solid rgba(255, 87, 34, 0.2); }
+.badge-wait { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+.badge-done { background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.22); }
 
 /* QUICK TRANSACTION FORM PANEL */
 .quick-tabs-container {
@@ -1248,7 +1250,7 @@ nav {
 .node-number {
     font-family: var(--font-serif);
     font-size: 3rem;
-    color: rgba(217, 109, 0, 0.02);
+    color: rgba(255, 87, 34, 0.03);
     position: absolute;
     top: 10px;
     right: 20px;
@@ -1278,7 +1280,7 @@ nav {
     margin: 4rem auto 0;
     text-align: center;
     padding: 4.5rem 2.5rem;
-    background: radial-gradient(circle at center, rgba(217, 109, 0, 0.012) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(255, 87, 34, 0.02) 0%, transparent 70%);
     border-top: 1px solid var(--border-glass);
 }
 .char-title {
@@ -1385,10 +1387,10 @@ nav {
     bottom: 25px;
     right: 25px;
     width: 370px;
-    background: rgba(14, 14, 16, 0.95);
+    background: rgba(12, 18, 32, 0.95);
     backdrop-filter: blur(20px);
     border-radius: var(--radius-lg);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(217, 109, 0, 0.02);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 87, 34, 0.03);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -1435,9 +1437,9 @@ nav {
     text-align: left;
 }
 .user-msg {
-    background: rgba(217, 109, 0, 0.1);
+    background: rgba(255, 87, 34, 0.12);
     color: var(--text-primary);
-    border: 1px solid rgba(217, 109, 0, 0.25);
+    border: 1px solid rgba(255, 87, 34, 0.3);
     align-self: flex-end;
     border-bottom-right-radius: 2px;
     font-weight: 500;

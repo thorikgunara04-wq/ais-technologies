@@ -90,7 +90,7 @@ function loadSfDashboardQueue() {
                 <td style="font-size:0.8rem; color:#a3b8b0;">${s.kerusakan}</td>
                 <td style="font-size:0.8rem; color:#dfb26c; font-weight:600;">${s.tindakan}</td>
                 <td>${s.teknisi}</td>
-                <td style="color:#d96d00; font-weight:bold;">Rp ${s.laba.toLocaleString('id-ID')}</td>
+                <td style="color:#ff5722; font-weight:bold;">Rp ${s.laba.toLocaleString('id-ID')}</td>
                 <td>
                     <button class="switch-btn active" style="padding: 4px 10px; font-size:0.7rem;" onclick="simulateSfAction('${s.no}')">
                         ${s.status === 'Repair' ? '💻 Flash ROM' : '👁️ Detail'}
@@ -218,11 +218,11 @@ function startInteractiveFlashing(deviceName) {
             
             // Apply different colors based on tags
             if (logs[currentLine].includes("[OK]") || logs[currentLine].includes("✅")) {
-                line.style.color = "#d96d00"; // soft solar orange
+                line.style.color = "#ff5722"; // fiery cyber orange
             } else if (logs[currentLine].includes("[WARNING]")) {
-                line.style.color = "#cca000"; // soft solar yellow
+                line.style.color = "#f59e0b"; // cyber amber gold
             } else if (logs[currentLine].includes("SUCCESS")) {
-                line.style.color = "#d92451"; // soft solar crimson red
+                line.style.color = "#ef4444"; // cyber crimson red
                 line.style.fontWeight = "bold";
             }
             
@@ -267,13 +267,13 @@ function loadRpTransactions() {
     tableBody.innerHTML = "";
     rpTransactionsLog.forEach((tx, idx) => {
         tableBody.innerHTML += `
-            <tr style="background: rgba(30, 189, 116, 0.01);">
-                <td style="color:#dfb26c; font-weight:600;">⚡ ${tx.id}</td>
+            <tr style="background: rgba(255, 87, 34, 0.02);">
+                <td style="color:var(--gold); font-weight:600;">⚡ ${tx.id}</td>
                 <td>${tx.waktu}</td>
                 <td style="font-weight:600;">${tx.operator}</td>
                 <td style="font-family:var(--font-mono);">${tx.nomor}</td>
                 <td style="font-family:var(--font-mono); font-weight:600;">${tx.nominal}</td>
-                <td style="color:#d96d00; font-weight:bold;">Rp ${tx.profit.toLocaleString('id-ID')}</td>
+                <td style="color:#ff5722; font-weight:bold;">Rp ${tx.profit.toLocaleString('id-ID')}</td>
                 <td><span class="status-badge badge-cash">SUCCESS</span></td>
             </tr>
         `;
@@ -507,13 +507,13 @@ function initCashFlowCalculator() {
         
         if (val >= totalBeban) {
             statusText = "🎯 CLEAR TO HOME (CTH) — Laba Bersih Positif & Aset Berkembang!";
-            barColor = "#d96d00"; // Soft Solar Orange
+            barColor = "#ff5722"; // Fiery Cyber Orange
         } else if (val >= opexHarian) {
             statusText = "🚀 CLEAR TO OPERATIONAL (CTO) — Beban Ops Terpenuhi!";
-            barColor = "#cca000"; // Soft Solar Yellow
+            barColor = "#f59e0b"; // Cyber Amber Gold
         } else if (val >= gajiHarian) {
             statusText = "⚡ CLEAR TO SALARY (CTS) — Gaji Staf Hari Ini Aman!";
-            barColor = "#3b82f6"; // Blue
+            barColor = "#3b82f6"; // Cyber Blue
         } else {
             statusText = "🏃 OTW TARGET MINIMAL (ON PROCESS)";
             barColor = "#ef4444"; // Red
