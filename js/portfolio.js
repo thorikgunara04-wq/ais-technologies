@@ -90,7 +90,7 @@ function loadSfDashboardQueue() {
                 <td style="font-size:0.8rem; color:#a3b8b0;">${s.kerusakan}</td>
                 <td style="font-size:0.8rem; color:#dfb26c; font-weight:600;">${s.tindakan}</td>
                 <td>${s.teknisi}</td>
-                <td style="color:#1ebd74; font-weight:bold;">Rp ${s.laba.toLocaleString('id-ID')}</td>
+                <td style="color:#00d2ff; font-weight:bold;">Rp ${s.laba.toLocaleString('id-ID')}</td>
                 <td>
                     <button class="switch-btn active" style="padding: 4px 10px; font-size:0.7rem;" onclick="simulateSfAction('${s.no}')">
                         ${s.status === 'Repair' ? '💻 Flash ROM' : '👁️ Detail'}
@@ -218,11 +218,11 @@ function startInteractiveFlashing(deviceName) {
             
             // Apply different colors based on tags
             if (logs[currentLine].includes("[OK]") || logs[currentLine].includes("✅")) {
-                line.style.color = "#10b981"; // neon green
+                line.style.color = "#00d2ff"; // neon cyan
             } else if (logs[currentLine].includes("[WARNING]")) {
-                line.style.color = "#dfb26c"; // warm gold
+                line.style.color = "#ff3e6c"; // neon crimson
             } else if (logs[currentLine].includes("SUCCESS")) {
-                line.style.color = "#10b981";
+                line.style.color = "#00d2ff";
                 line.style.fontWeight = "bold";
             }
             
@@ -273,7 +273,7 @@ function loadRpTransactions() {
                 <td style="font-weight:600;">${tx.operator}</td>
                 <td style="font-family:var(--font-mono);">${tx.nomor}</td>
                 <td style="font-family:var(--font-mono); font-weight:600;">${tx.nominal}</td>
-                <td style="color:#1ebd74; font-weight:bold;">Rp ${tx.profit.toLocaleString('id-ID')}</td>
+                <td style="color:#00d2ff; font-weight:bold;">Rp ${tx.profit.toLocaleString('id-ID')}</td>
                 <td><span class="status-badge badge-cash">SUCCESS</span></td>
             </tr>
         `;
@@ -507,10 +507,10 @@ function initCashFlowCalculator() {
         
         if (val >= totalBeban) {
             statusText = "🎯 CLEAR TO HOME (CTH) — Laba Bersih Positif & Aset Berkembang!";
-            barColor = "#1ebd74"; // Emerald
+            barColor = "#00d2ff"; // Electric Blue
         } else if (val >= opexHarian) {
             statusText = "🚀 CLEAR TO OPERATIONAL (CTO) — Beban Ops Terpenuhi!";
-            barColor = "#dfb26c"; // Gold
+            barColor = "#ff3e6c"; // Neon Crimson
         } else if (val >= gajiHarian) {
             statusText = "⚡ CLEAR TO SALARY (CTS) — Gaji Staf Hari Ini Aman!";
             barColor = "#3b82f6"; // Blue
