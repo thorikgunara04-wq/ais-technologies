@@ -42,7 +42,11 @@ def chat():
         return jsonify({"response": response.text})
 
     except Exception as e:
-        return jsonify({"response": f"Sistem lagi maintenance bro: {str(e)}"}), 500
+        try:
+            available_models = [m.name for m in genai.list_models()]
+        except Exception as err:
+            available_models = f"Failed to list: {str(err)}"
+        return jsonify({"response": f"Sistem lagi maintenance bro: {str(e)}. Available models: {available_models}"}), 500
 
 # Penting: Vercel butuh variabel 'app' untuk dijalankan
 # Tidak perlu app.run() di sini
