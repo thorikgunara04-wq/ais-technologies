@@ -681,15 +681,22 @@ nav {
     color: var(--text-primary);
     font-family: var(--font-mono);
 }
-.kpi-value.up { color: var(--accent); }
+.kpi-value.up { color: var(--success); }
 .kpi-value.warning { color: var(--gold); }
 .kpi-value.danger { color: #ef4444; }
+
+/* UTILITY COLORS */
+.text-white { color: #ffffff !important; }
+.text-info { color: #3b82f6 !important; }
+.text-success { color: var(--success) !important; }
+.text-warning { color: var(--gold) !important; }
+.text-danger { color: #ef4444 !important; }
 
 /* MILESTONE OPERASIONAL CONTAINER */
 .milestone-dashboard {
     background: var(--bg-tertiary);
     border: 1px solid var(--border-glass);
-    border-left: 2.5px solid var(--accent);
+    border-left: 2.5px solid var(--success);
     border-radius: var(--radius-md);
     padding: 1.5rem 1.75rem;
     margin-bottom: 2rem;
@@ -704,7 +711,7 @@ nav {
     font-weight: 600;
 }
 .milestone-status-txt {
-    color: var(--accent);
+    color: var(--success);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -738,6 +745,10 @@ nav {
     gap: 4px;
 }
 .marker-done { color: var(--accent); }
+.marker-done.start { color: var(--text-secondary); }
+.marker-done.cts { color: #3b82f6; }
+.marker-done.cto { color: var(--gold); }
+.marker-done.cth { color: var(--success); }
 .marker-wait { color: var(--text-muted); }
 
 /* GRID CONTENT DASHBOARD */
@@ -1260,14 +1271,16 @@ nav {
     -webkit-appearance: none;
     width: 24px; height: 24px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--gold);
     cursor: pointer;
     border: 2px solid var(--text-primary);
-    box-shadow: 0 0 12px var(--accent-glow);
-    transition: transform 0.1s;
+    box-shadow: 0 0 12px var(--gold-glow);
+    transition: transform 0.1s, background-color 0.2s;
 }
 .premium-range-input::-webkit-slider-thumb:active {
     transform: scale(1.2);
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
 }
 
 /* FLOW CHART NODES (GROWTH ENGINE) */

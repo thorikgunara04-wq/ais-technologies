@@ -504,19 +504,24 @@ function initCashFlowCalculator() {
         
         let statusText = "";
         let barColor = "#6e757c";
+        let barBg = "#6e757c";
         
         if (val >= totalBeban) {
             statusText = "🎯 CLEAR TO HOME (CTH) — Laba Bersih Positif & Aset Berkembang!";
-            barColor = "#ff5722"; // Fiery Cyber Orange
+            barColor = "#10b981"; // Success Emerald Green
+            barBg = "var(--gradient-solar)"; // Gradient solar (orange-amber-emerald)
         } else if (val >= opexHarian) {
             statusText = "🚀 CLEAR TO OPERATIONAL (CTO) — Beban Ops Terpenuhi!";
             barColor = "#f59e0b"; // Cyber Amber Gold
+            barBg = "#f59e0b";
         } else if (val >= gajiHarian) {
             statusText = "⚡ CLEAR TO SALARY (CTS) — Gaji Staf Hari Ini Aman!";
             barColor = "#3b82f6"; // Cyber Blue
+            barBg = "#3b82f6";
         } else {
             statusText = "🏃 OTW TARGET MINIMAL (ON PROCESS)";
             barColor = "#ef4444"; // Red
+            barBg = "#ef4444";
         }
         
         // Update milestone indicator percentage
@@ -528,7 +533,7 @@ function initCashFlowCalculator() {
         statusValEl.innerText = percentage.toFixed(1) + "%";
         statusValEl.style.color = barColor;
         fillBar.style.width = percentage + "%";
-        fillBar.style.background = barColor;
+        fillBar.style.background = barBg;
         
         // Allocate CTH shares if Laba Bersih is positive
         const labaBersih = val - totalBeban;
