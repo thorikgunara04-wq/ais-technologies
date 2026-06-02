@@ -541,6 +541,403 @@ nav {
     line-height: 1.7;
 }
 
+/* ==========================================================================
+   PRODUK SECTION & COMPARATIVE CARD LAYOUT
+   ========================================================================== */
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: stretch;
+}
+
+@media (max-width: 768px) {
+    .produk-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.produk-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.produk-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 87, 34, 0.03) 0%, transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.produk-card.recommended {
+    border: 2px solid var(--accent);
+    box-shadow: 0 10px 40px rgba(255, 87, 34, 0.08), inset 0 0 15px rgba(255, 87, 34, 0.02);
+    background: linear-gradient(180deg, rgba(12, 18, 32, 0.8) 0%, rgba(17, 24, 39, 0.7) 100%);
+}
+
+.produk-card.recommended::before {
+    background: radial-gradient(circle at 50% 0%, rgba(255, 87, 34, 0.08) 0%, transparent 70%);
+    opacity: 1;
+}
+
+.produk-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-glass-active);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(255, 87, 34, 0.05);
+}
+
+.produk-card.recommended:hover {
+    border-color: var(--accent);
+    box-shadow: 0 20px 50px rgba(255, 87, 34, 0.18), inset 0 0 20px rgba(255, 87, 34, 0.08);
+}
+
+.produk-header {
+    margin-bottom: 2rem;
+    text-align: left;
+    position: relative;
+}
+
+.produk-badge-placeholder {
+    height: 28px;
+}
+
+.produk-badge {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(95deg, var(--accent) 0%, var(--gold) 100%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 30px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 8px rgba(255, 87, 34, 0.25);
+    text-transform: uppercase;
+}
+
+.produk-name {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.produk-card.recommended .produk-name {
+    background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.produk-fullname {
+    font-size: 0.95rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 0.2rem;
+    letter-spacing: 0.02em;
+}
+
+.produk-tagline {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-top: 0.6rem;
+}
+
+.produk-tagline.highlight {
+    color: var(--accent);
+}
+
+.produk-body {
+    flex-grow: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.produk-intro {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.produk-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.produk-feature-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.produk-card.recommended .feature-icon {
+    color: var(--accent);
+    background: rgba(255, 87, 34, 0.03);
+}
+
+.produk-feature-item:hover .feature-icon {
+    background: rgba(255, 87, 34, 0.08);
+    color: var(--accent);
+    transform: scale(1.05);
+}
+
+.feature-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.feature-info p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* Strategic Note inside ABOS Card */
+.strategic-note {
+    background: rgba(245, 158, 11, 0.03);
+    border: 1px dashed rgba(245, 158, 11, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.note-badge {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+}
+
+.produk-footer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.produk-summary {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    border-top: 1px solid var(--border-glass);
+    padding-top: 1rem;
+}
+
+.produk-btn {
+    width: 100%;
+    text-align: center;
+}
+
+.produk-btn-highlight {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 2.2rem;
+    background: var(--gradient-solar);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.25);
+    text-align: center;
+}
+
+.produk-btn-highlight:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 87, 34, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Visual flow for ABOS */
+.produk-flow-container {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    margin: 0.5rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.flow-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.flow-visual {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 0.25rem 0;
+}
+
+.flow-node-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.flow-node-mini i {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-glass);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    transition: all 0.3s;
+}
+
+.flow-node-mini.accent-gm i {
+    border-color: rgba(245, 158, 11, 0.3);
+    color: var(--gold);
+    background: rgba(245, 158, 11, 0.03);
+}
+
+.flow-node-mini.accent-sp i {
+    border-color: rgba(255, 87, 34, 0.3);
+    color: var(--accent);
+    background: rgba(255, 87, 34, 0.03);
+}
+
+.flow-node-mini.accent-ext i {
+    border-color: rgba(16, 185, 129, 0.3);
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.03);
+}
+
+.flow-node-mini span {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.flow-arrow-mini {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    position: relative;
+    width: 25px;
+    flex-shrink: 0;
+}
+
+.flow-arrow-mini.interactive {
+    color: var(--gold);
+}
+
+.arrow-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: flowDot 2s infinite linear;
+}
+
+.flow-arrow-mini:nth-of-type(1) .arrow-dot {
+    animation-delay: 0s;
+}
+
+.flow-arrow-mini:nth-of-type(2) .arrow-dot {
+    animation-delay: 0.6s;
+    background: var(--gold);
+}
+
+.flow-arrow-mini:nth-of-type(3) .arrow-dot {
+    animation-delay: 1.2s;
+    background: var(--success);
+}
+
+.flow-desc-mini {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+@keyframes flowDot {
+    0% {
+        left: 0%;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
 /* PORTFOLIO SECTION & TABS (NEW) */
 .portfolio-tabs {
     display: flex;
