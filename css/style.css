@@ -869,6 +869,24 @@ nav {
     background: rgba(16, 185, 129, 0.03);
 }
 
+.flow-node-mini.accent-data i {
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.03);
+}
+
+.flow-node-mini.accent-cs i {
+    border-color: rgba(16, 185, 129, 0.3);
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.03);
+}
+
+.flow-node-mini.accent-ao i {
+    border-color: rgba(245, 158, 11, 0.3);
+    color: var(--gold);
+    background: rgba(245, 158, 11, 0.03);
+}
+
 .flow-node-mini span {
     font-size: 0.68rem;
     font-weight: 600;
