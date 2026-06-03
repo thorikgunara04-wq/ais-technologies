@@ -1,0 +1,332 @@
+<svg viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for Cube 1 (Orange) -->
+    <linearGradient id="top1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7a50" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ff3300" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="left1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff5722" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#be2600" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="right1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e64a19" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#8e1c00" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Gradients for Cube 2 (Orange-Amber) -->
+    <linearGradient id="top2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb74d" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ff9100" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="left2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff9100" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#d35400" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="right2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff6d00" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#a04000" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Gradients for Cube 3 (Amber-Gold) -->
+    <linearGradient id="top3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd54f" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ffab00" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="left3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="right3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d97706" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#78350f" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Gradients for Cube 4 (Amber-Emerald) -->
+    <linearGradient id="top4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="left4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="right4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#059669" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#064e3b" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Gradients for Cube 5 (Emerald-Cyan) -->
+    <linearGradient id="top5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="left5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#059669" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#064e3b" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="right5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#047857" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#022c22" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Energy Line Gradient -->
+    <linearGradient id="lineGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff5722" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Filters for Glow effects -->
+    <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* Styling & Animation Rules inside SVG */
+    .cube-group {
+      animation: floatCube 4s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    
+    .cube-1 { animation-delay: 0s; --glow-color: #ff5722; }
+    .cube-2 { animation-delay: 0.3s; --glow-color: #ff9100; }
+    .cube-3 { animation-delay: 0.6s; --glow-color: #f59e0b; }
+    .cube-4 { animation-delay: 0.9s; --glow-color: #10b981; }
+    .cube-5 { animation-delay: 1.2s; --glow-color: #10b981; }
+
+    @keyframes floatCube {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .energy-path {
+      stroke-dasharray: 20;
+      stroke-dashoffset: 40;
+      animation: energyFlow 2.5s linear infinite;
+    }
+
+    @keyframes energyFlow {
+      to {
+        stroke-dashoffset: -40;
+      }
+    }
+
+    .glow-core {
+      animation: corePulse 5s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    
+    .cube-1 .glow-core { animation-delay: 0s; }
+    .cube-2 .glow-core { animation-delay: 1s; }
+    .cube-3 .glow-core { animation-delay: 2s; }
+    .cube-4 .glow-core { animation-delay: 3s; }
+    .cube-5 .glow-core { animation-delay: 4s; }
+
+    @keyframes corePulse {
+      0%, 100%, 80% {
+        opacity: 0.2;
+        transform: scale(0.85);
+      }
+      30%, 55% {
+        opacity: 0.95;
+        transform: scale(1.15);
+      }
+    }
+
+    .glass-face {
+      transition: all 0.3s ease;
+    }
+
+    .cube-group:hover .glass-face {
+      stroke-opacity: 0.8;
+      fill-opacity: 0.95;
+    }
+
+    .cube-face-top {
+      animation: topPulse 5s ease-in-out infinite;
+    }
+    .cube-1 .cube-face-top { animation-delay: 0s; }
+    .cube-2 .cube-face-top { animation-delay: 1s; }
+    .cube-3 .cube-face-top { animation-delay: 2s; }
+    .cube-4 .cube-face-top { animation-delay: 3s; }
+    .cube-5 .cube-face-top { animation-delay: 4s; }
+
+    @keyframes topPulse {
+      0%, 100%, 80% {
+        fill-opacity: 0.7;
+      }
+      30%, 55% {
+        fill-opacity: 0.95;
+      }
+    }
+    
+    .cube-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      opacity: 0.75;
+      animation: textPulse 5s ease-in-out infinite;
+    }
+    .cube-1 .cube-text { fill: #ff5722; animation-delay: 0s; }
+    .cube-2 .cube-text { fill: #ff9100; animation-delay: 1s; }
+    .cube-3 .cube-text { fill: #f59e0b; animation-delay: 2s; }
+    .cube-4 .cube-text { fill: #10b981; animation-delay: 3s; }
+    .cube-5 .cube-text { fill: #10b981; animation-delay: 4s; }
+
+    @keyframes textPulse {
+      0%, 100%, 80% {
+        opacity: 0.6;
+        font-size: 8px;
+      }
+      30%, 55% {
+        opacity: 1;
+        font-size: 8.5px;
+      }
+    }
+  </style>
+
+  <!-- Background decorative element: grid of tech nodes -->
+  <g opacity="0.12">
+    <circle cx="80" cy="180" r="1.5" fill="#f3f4f6"/>
+    <circle cx="160" cy="140" r="1.5" fill="#f3f4f6"/>
+    <circle cx="240" cy="100" r="1.5" fill="#f3f4f6"/>
+    <circle cx="320" cy="60" r="1.5" fill="#f3f4f6"/>
+    <circle cx="120" cy="240" r="1.5" fill="#f3f4f6"/>
+    <circle cx="200" cy="200" r="1.5" fill="#f3f4f6"/>
+    <circle cx="280" cy="160" r="1.5" fill="#f3f4f6"/>
+    <circle cx="360" cy="120" r="1.5" fill="#f3f4f6"/>
+    <circle cx="440" cy="80" r="1.5" fill="#f3f4f6"/>
+  </g>
+
+  <!-- Isometric grid lines (background grid) -->
+  <path d="M 50,300 L 450,100 M 50,360 L 450,160 M 50,420 L 450,220 M 50,240 L 450,40" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1" />
+  <path d="M 50,100 L 450,300 M 50,160 L 450,360 M 50,220 L 450,420 M 50,40 L 450,240" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1" />
+
+  <!-- Neon Glowing Connection Circuit Line -->
+  <path class="energy-path" d="M 110,351 L 182,309 L 254,267 L 326,225 L 398,183" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8" />
+  <!-- Underglow connection shadow -->
+  <path d="M 110,351 L 182,309 L 254,267 L 326,225 L 398,183" stroke="url(#lineGrad)" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.3" filter="url(#glow-orange)" />
+
+  <!-- Cube 5 (Ulangan - Emerald) -->
+  <g class="cube-group cube-5">
+    <!-- Shadow under cube -->
+    <ellipse cx="398" cy="254" rx="26" ry="9" fill="#000000" opacity="0.45" />
+    
+    <!-- Left Face -->
+    <polygon class="glass-face" points="362,183 398,204 398,246 362,225" fill="url(#left5)" stroke="#10b981" stroke-width="0.7" stroke-opacity="0.3" />
+    <!-- Right Face -->
+    <polygon class="glass-face" points="398,204 434,183 434,225 398,246" fill="url(#right5)" stroke="#10b981" stroke-width="0.7" stroke-opacity="0.3" />
+    
+    <!-- Glowing core inside -->
+    <circle class="glow-core" cx="398" cy="214" r="8" fill="#10b981" opacity="0.4" filter="url(#glow-green)" />
+    <circle cx="398" cy="214" r="3.5" fill="#ffffff" opacity="0.9" />
+
+    <!-- Top Face -->
+    <polygon class="glass-face cube-face-top" points="398,162 434,183 398,204 362,183" fill="url(#top5)" stroke="#6ee7b7" stroke-width="1" stroke-opacity="0.5" />
+    
+    <!-- Text Labels (Subtle) -->
+    <text class="cube-text" x="398" y="146" text-anchor="middle">5: ULANGAN</text>
+  </g>
+
+  <!-- Cube 4 (Urusan - Amber/Green) -->
+  <g class="cube-group cube-4">
+    <!-- Shadow under cube -->
+    <ellipse cx="326" cy="296" rx="26" ry="9" fill="#000000" opacity="0.45" />
+    
+    <!-- Left Face -->
+    <polygon class="glass-face" points="290,225 326,246 326,288 290,267" fill="url(#left4)" stroke="#10b981" stroke-width="0.7" stroke-opacity="0.3" />
+    <!-- Right Face -->
+    <polygon class="glass-face" points="326,246 362,225 362,267 326,288" fill="url(#right4)" stroke="#10b981" stroke-width="0.7" stroke-opacity="0.3" />
+    
+    <!-- Glowing core inside -->
+    <circle class="glow-core" cx="326" cy="256" r="8" fill="#10b981" opacity="0.4" filter="url(#glow-green)" />
+    <circle cx="326" cy="256" r="3.5" fill="#ffffff" opacity="0.9" />
+
+    <!-- Top Face -->
+    <polygon class="glass-face cube-face-top" points="326,204 362,225 326,246 290,225" fill="url(#top4)" stroke="#a7f3d0" stroke-width="1" stroke-opacity="0.5" />
+    
+    <!-- Text Labels (Subtle) -->
+    <text class="cube-text" x="326" y="188" text-anchor="middle">4: URUSAN</text>
+  </g>
+
+  <!-- Cube 3 (Uraian - Gold) -->
+  <g class="cube-group cube-3">
+    <!-- Shadow under cube -->
+    <ellipse cx="254" cy="338" rx="26" ry="9" fill="#000000" opacity="0.45" />
+    
+    <!-- Left Face -->
+    <polygon class="glass-face" points="218,267 254,288 254,330 218,309" fill="url(#left3)" stroke="#ffab00" stroke-width="0.7" stroke-opacity="0.3" />
+    <!-- Right Face -->
+    <polygon class="glass-face" points="254,288 290,267 290,309 254,330" fill="url(#right3)" stroke="#d97706" stroke-width="0.7" stroke-opacity="0.3" />
+    
+    <!-- Glowing core inside -->
+    <circle class="glow-core" cx="254" cy="298" r="8" fill="#ffab00" opacity="0.4" filter="url(#glow-gold)" />
+    <circle cx="254" cy="298" r="3.5" fill="#ffffff" opacity="0.9" />
+
+    <!-- Top Face -->
+    <polygon class="glass-face cube-face-top" points="254,246 290,267 254,288 218,267" fill="url(#top3)" stroke="#ffd54f" stroke-width="1" stroke-opacity="0.5" />
+    
+    <!-- Text Labels (Subtle) -->
+    <text class="cube-text" x="254" y="230" text-anchor="middle">3: URAIAN</text>
+  </g>
+
+  <!-- Cube 2 (Ukuran - Orange/Amber) -->
+  <g class="cube-group cube-2">
+    <!-- Shadow under cube -->
+    <ellipse cx="182" cy="380" rx="26" ry="9" fill="#000000" opacity="0.45" />
+    
+    <!-- Left Face -->
+    <polygon class="glass-face" points="146,309 182,330 182,372 146,351" fill="url(#left2)" stroke="#ff9100" stroke-width="0.7" stroke-opacity="0.3" />
+    <!-- Right Face -->
+    <polygon class="glass-face" points="182,330 218,309 218,351 182,372" fill="url(#right2)" stroke="#ff6d00" stroke-width="0.7" stroke-opacity="0.3" />
+    
+    <!-- Glowing core inside -->
+    <circle class="glow-core" cx="182" cy="340" r="8" fill="#ff9100" opacity="0.4" filter="url(#glow-orange)" />
+    <circle cx="182" cy="340" r="3.5" fill="#ffffff" opacity="0.9" />
+
+    <!-- Top Face -->
+    <polygon class="glass-face cube-face-top" points="182,288 218,309 182,330 146,309" fill="url(#top2)" stroke="#ffb74d" stroke-width="1" stroke-opacity="0.5" />
+    
+    <!-- Text Labels (Subtle) -->
+    <text class="cube-text" x="182" y="272" text-anchor="middle">2: UKURAN</text>
+  </g>
+
+  <!-- Cube 1 (Urutan - Orange) -->
+  <g class="cube-group cube-1">
+    <!-- Shadow under cube -->
+    <ellipse cx="110" cy="422" rx="26" ry="9" fill="#000000" opacity="0.45" />
+    
+    <!-- Left Face -->
+    <polygon class="glass-face" points="74,351 110,372 110,414 74,393" fill="url(#left1)" stroke="#ff5722" stroke-width="0.7" stroke-opacity="0.3" />
+    <!-- Right Face -->
+    <polygon class="glass-face" points="110,372 146,351 146,393 110,414" fill="url(#right1)" stroke="#e64a19" stroke-width="0.7" stroke-opacity="0.3" />
+    
+    <!-- Glowing core inside -->
+    <circle class="glow-core" cx="110" cy="382" r="8" fill="#ff5722" opacity="0.4" filter="url(#glow-orange)" />
+    <circle cx="110" cy="382" r="3.5" fill="#ffffff" opacity="0.9" />
+
+    <!-- Top Face -->
+    <polygon class="glass-face cube-face-top" points="110,330 146,351 110,372 74,351" fill="url(#top1)" stroke="#ff7a50" stroke-width="1" stroke-opacity="0.5" />
+    
+    <!-- Text Labels (Subtle) -->
+    <text class="cube-text" x="110" y="314" text-anchor="middle">1: URUTAN</text>
+  </g>
+</svg>
