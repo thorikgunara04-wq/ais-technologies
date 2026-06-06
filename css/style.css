@@ -639,6 +639,17 @@ nav {
     opacity: 1;
 }
 
+.produk-card.boss {
+    border: 2px solid var(--success);
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.08), inset 0 0 15px rgba(16, 185, 129, 0.02);
+    background: linear-gradient(180deg, rgba(12, 18, 32, 0.8) 0%, rgba(17, 24, 39, 0.7) 100%);
+}
+
+.produk-card.boss::before {
+    background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+    opacity: 1;
+}
+
 .produk-card:hover {
     transform: translateY(-8px);
     border-color: var(--border-glass-active);
@@ -648,6 +659,11 @@ nav {
 .produk-card.recommended:hover {
     border-color: var(--accent);
     box-shadow: 0 20px 50px rgba(255, 87, 34, 0.18), inset 0 0 20px rgba(255, 87, 34, 0.08);
+}
+
+.produk-card.boss:hover {
+    border-color: var(--success);
+    box-shadow: 0 20px 50px rgba(16, 185, 129, 0.18), inset 0 0 20px rgba(16, 185, 129, 0.08);
 }
 
 .produk-header {
@@ -688,6 +704,21 @@ nav {
     background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.produk-card.boss .produk-name {
+    background: linear-gradient(135deg, #ffffff 40%, var(--success) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.produk-card.boss .produk-tagline {
+    color: var(--success);
+}
+
+.produk-card.boss .produk-badge {
+    background: linear-gradient(95deg, var(--success) 0%, #0ea5e9 100%);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
 }
 
 .produk-fullname {
@@ -759,10 +790,26 @@ nav {
     background: rgba(255, 87, 34, 0.03);
 }
 
+.produk-card.boss .feature-icon {
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.03);
+}
+
+.produk-card.boss .btn-outline:hover {
+    border-color: var(--success);
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.03);
+}
+
 .produk-feature-item:hover .feature-icon {
     background: rgba(255, 87, 34, 0.08);
     color: var(--accent);
     transform: scale(1.05);
+}
+
+.produk-card.boss .produk-feature-item:hover .feature-icon {
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--success);
 }
 
 .feature-info h4 {
