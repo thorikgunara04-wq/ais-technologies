@@ -1,4 +1,4 @@
-// MAIN INTERACTION SCRIPT - AIS TECHNOLOGIES
+// MAIN INTERACTION SCRIPT - AIS TECH SYSTEM
 
 // -------------------------------------------------------------
 // 1. BILINGUAL LANGUAGE SWITCHER (ID/EN)

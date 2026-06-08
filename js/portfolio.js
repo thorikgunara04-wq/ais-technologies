@@ -1,4 +1,4 @@
-// PORTFOLIO SIMULATORS - AIS TECHNOLOGIES
+// PORTFOLIO SIMULATORS - AIS TECH SYSTEM
 
 // -------------------------------------------------------------
 // 1. DATABASE MOCK / SIMULATED DATA

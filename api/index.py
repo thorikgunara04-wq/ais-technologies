@@ -23,7 +23,7 @@ def chat():
         user_message = user_data.get('message', '')
 
         web_content = (
-            "AIS Technologies adalah pengembang sistem bisnis berbasis digital milik Bro Thorik. "
+            "AIS Tech System adalah pengembang sistem bisnis berbasis digital milik Bro Thorik. "
             "FOKUS: Sistem '5-Bit Clean Logic', Data Automation, & Agen AI. "
             "FILOSOFI: Membangun Karakter Usaha, bukan sekadar imaji. "
             "Sistem kami membantu owner mengontrol CTH (Clear to Home) jam 4 sore secara otomatis. "
@@ -33,7 +33,7 @@ def chat():
         )
 
         prompt = (
-            f"Kamu adalah AI AIS Technologies. Jawab HANYA berdasarkan data ini: {web_content}. "
+            f"Kamu adalah AI AIS Tech System. Jawab HANYA berdasarkan data ini: {web_content}. "
             f"Gunakan gaya bahasa profesional tapi santai dengan panggilan Bro/Sist. "
             f"Pertanyaan user: {user_message}"
         )
