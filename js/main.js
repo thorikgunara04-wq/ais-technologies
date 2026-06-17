@@ -56,12 +56,49 @@ function initAmbientParallax() {
 }
 
 // -------------------------------------------------------------
+// 5. BLUEPRINT LIGHTBOX MODAL
+// -------------------------------------------------------------
+function initBlueprintLightbox() {
+    const diagram = document.getElementById('trisula-diagram');
+    const modal = document.getElementById('blueprint-modal');
+    const modalImg = document.getElementById('img-modal-target');
+    const captionText = document.getElementById('blueprint-modal-caption');
+
+    if (!diagram || !modal || !modalImg) return;
+
+    diagram.addEventListener('click', () => {
+        modal.style.display = "block";
+        modalImg.src = diagram.src;
+        
+        // Dynamic caption based on current language
+        const isEn = document.body.classList.contains('lang-en');
+        captionText.textContent = isEn ? "Trident of Balance BOSS Ecosystem Blueprint" : "Cetak Biru Trisula Keseimbangan Ekosistem BOSS";
+    });
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeBlueprintModal();
+        }
+    });
+}
+
+function closeBlueprintModal() {
+    const modal = document.getElementById('blueprint-modal');
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+// -------------------------------------------------------------
 // INITIALIZATION ON READY
 // -------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     initScrollReveal();
     initAmbientParallax();
+    initBlueprintLightbox();
 });
 
-// Bind setLang to global window context so inline buttons work
+// Bind functions to global window context so inline buttons work
 window.setLang = setLang;
+window.closeBlueprintModal = closeBlueprintModal;
