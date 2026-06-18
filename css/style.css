@@ -2396,7 +2396,144 @@ footer {
 .bf-arrow:nth-child(2)::after { animation: bfArrowFlow 1.2s infinite 0.6s; }
 .bf-arrow:nth-child(4)::after { animation: bfArrowFlow 1.2s infinite 1.8s; }
 .bf-arrow:nth-child(6)::after { animation: bfArrowFlow 1.2s infinite 3s; }
-.bf-arrow:nth-child(8)::after { animation: bfArrowFlow 1.2s infinite 4.2s; }
+.bf-arrow:nth-child(8)::after { animation: bfArrowFlow 1.2s infinite 0.6s; }
+
+/* Technical Flow Diagram */
+.technical-flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding: 1rem 0.5rem;
+    background: rgba(9, 13, 22, 0.4);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    gap: 0.25rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tf-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    flex: 1;
+    min-width: 45px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.tf-node i {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.tf-node span {
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: all 0.4s ease;
+}
+
+.tf-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--text-muted);
+    font-size: 0.6rem;
+    width: 15px;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* Sequential Node Glow Animation for Technical */
+@keyframes tfNodeGlow {
+    0%, 100% {
+        transform: scale(1);
+        border-color: var(--border-glass);
+        color: var(--text-muted);
+        background: rgba(255, 255, 255, 0.03);
+        box-shadow: none;
+    }
+    15% {
+        transform: scale(1.15);
+        border-color: var(--status-wait);
+        color: var(--status-wait);
+        background: rgba(59, 130, 246, 0.12);
+        box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+    }
+}
+
+@keyframes tfTextGlow {
+    0%, 100% {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+    15% {
+        color: var(--text-primary);
+        font-weight: 700;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.tf-node:nth-child(1) i { animation: tfNodeGlow 6s infinite 0s; }
+.tf-node:nth-child(1) span { animation: tfTextGlow 6s infinite 0s; }
+
+.tf-node:nth-child(3) i { animation: tfNodeGlow 6s infinite 1.2s; }
+.tf-node:nth-child(3) span { animation: tfTextGlow 6s infinite 1.2s; }
+
+.tf-node:nth-child(5) i { animation: tfNodeGlow 6s infinite 2.4s; }
+.tf-node:nth-child(5) span { animation: tfTextGlow 6s infinite 2.4s; }
+
+.tf-node:nth-child(7) i { animation: tfNodeGlow 6s infinite 3.6s; }
+.tf-node:nth-child(7) span { animation: tfTextGlow 6s infinite 3.6s; }
+
+.tf-node:nth-child(9) i { animation: tfNodeGlow 6s infinite 4.8s; }
+.tf-node:nth-child(9) span { animation: tfTextGlow 6s infinite 4.8s; }
+
+/* Special hover state for highlight node */
+.tf-node.highlight:hover i {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(245, 158, 11, 0.1);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
+/* Connector Dot Flow */
+.tf-arrow::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--status-wait);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px var(--status-wait);
+}
+
+@keyframes tfArrowFlow {
+    0% { left: -30%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { left: 130%; opacity: 0; }
+}
+
+.tf-arrow:nth-child(2)::after { animation: tfArrowFlow 1.2s infinite 0.6s; }
+.tf-arrow:nth-child(4)::after { animation: tfArrowFlow 1.2s infinite 1.8s; }
+.tf-arrow:nth-child(6)::after { animation: tfArrowFlow 1.2s infinite 3s; }
+.tf-arrow:nth-child(8)::after { animation: tfArrowFlow 1.2s infinite 4.2s; }
 
 
 .recovery-header {
