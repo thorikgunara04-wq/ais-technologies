@@ -59,20 +59,29 @@ function initAmbientParallax() {
 // 5. BLUEPRINT LIGHTBOX MODAL
 // -------------------------------------------------------------
 function initBlueprintLightbox() {
-    const diagram = document.getElementById('trisula-diagram');
     const modal = document.getElementById('blueprint-modal');
     const modalImg = document.getElementById('img-modal-target');
     const captionText = document.getElementById('blueprint-modal-caption');
+    const triggers = document.querySelectorAll('.lightbox-trigger');
 
-    if (!diagram || !modal || !modalImg) return;
+    if (!modal || !modalImg) return;
 
-    diagram.addEventListener('click', () => {
-        modal.style.display = "block";
-        modalImg.src = diagram.src;
-        
-        // Dynamic caption based on current language
-        const isEn = document.body.classList.contains('lang-en');
-        captionText.textContent = isEn ? "Trident of Balance BOSS Ecosystem Blueprint" : "Cetak Biru Trisula Keseimbangan Ekosistem BOSS";
+    triggers.forEach(img => {
+        img.addEventListener('click', () => {
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            
+            // Dynamic caption based on current language and image ID
+            const isEn = document.body.classList.contains('lang-en');
+            if (img.id === 'trisula-diagram') {
+                captionText.textContent = isEn ? "Trident of Balance BOSS Ecosystem Blueprint" : "Cetak Biru Trisula Keseimbangan Ekosistem BOSS";
+            } else if (img.id === 'technical-recovery-diagram') {
+                captionText.textContent = isEn ? "Technical Recovery: From Copy-Paste Robot to Logic Architect" : "Technical Recovery: Pulih dari Robot Copas menjadi Arsitek Logika";
+            } else {
+                const altText = img.getAttribute('alt');
+                captionText.textContent = altText || (isEn ? "Blueprint View" : "Tampilan Cetak Biru");
+            }
+        });
     });
 
     // Close modal when clicking outside the image
