@@ -2398,6 +2398,64 @@ footer {
 .bf-arrow:nth-child(6)::after { animation: bfArrowFlow 1.2s infinite 3s; }
 .bf-arrow:nth-child(8)::after { animation: bfArrowFlow 1.2s infinite 0.6s; }
 
+/* Business Image Diagram Showcase */
+.business-image-container {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 0.75rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    margin-top: 1.5rem;
+}
+
+.business-image-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.business-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+    transition: all 0.5s ease;
+    display: block;
+}
+
+.business-img-caption {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.business-image-container:hover {
+    border-color: var(--success);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
+}
+
+.business-image-container:hover .business-img {
+    transform: scale(1.015);
+}
+
+.business-image-container:hover .business-img-caption {
+    color: var(--success);
+}
+
 /* Technical Image Diagram Showcase */
 .technical-image-container {
     background: var(--bg-secondary);

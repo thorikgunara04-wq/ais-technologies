@@ -77,6 +77,8 @@ function initBlueprintLightbox() {
                 captionText.textContent = isEn ? "Trident of Balance BOSS Ecosystem Blueprint" : "Cetak Biru Trisula Keseimbangan Ekosistem BOSS";
             } else if (img.id === 'technical-recovery-diagram') {
                 captionText.textContent = isEn ? "Technical Recovery: From Copy-Paste Robot to Logic Architect" : "Technical Recovery: Pulih dari Robot Copas menjadi Arsitek Logika";
+            } else if (img.id === 'business-recovery-diagram') {
+                captionText.textContent = isEn ? "Business Recovery: Endless Asset Growth (From Revenue Illusion to Organic Asset Reality)" : "Business Recovery: Pertumbuhan Aset Tanpa Batas (Dari Ilusi Omzet Menuju Realitas Aset Organik)";
             } else {
                 const altText = img.getAttribute('alt');
                 captionText.textContent = altText || (isEn ? "Blueprint View" : "Tampilan Cetak Biru");
